@@ -47,7 +47,7 @@ import re
 def get_running_oracle_dbs():
     ps_command = "ps -ef | grep pmon | grep -v grep"
     try:
-        ps_output = subprocess.check_output(ps_command, shell=True, text=True).strip()
+        ps_output = subprocess.check_output(ps_command, shell=True, universal_newlines=True).strip()
         running_dbs = re.findall(r'ora_pmon_(\w+)', ps_output)
         return running_dbs if running_dbs else []
     except subprocess.CalledProcessError:
