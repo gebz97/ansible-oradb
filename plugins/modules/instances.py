@@ -7,7 +7,7 @@ __metaclass__ = type
 
 DOCUMENTATION = r'''
 ---
-module: oracle_db_list
+module: instances
 
 short_description: Lists running Oracle databases on a server.
 

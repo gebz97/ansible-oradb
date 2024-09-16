@@ -1,6 +1,6 @@
 COLLECTION_NAME=gebz97.oradb
 TAR_FILE=$(COLLECTION_NAME)-1.0.0.tar.gz
-COLLECTION_PATH=$(HOME)/.ansible/collections/ansible_collections/gebz97
+COLLECTION_PATH=$(HOME)/.ansible/collections/ansible_collections/gebz97/oradb
 
 .PHONY: build remove install reinstall
 
