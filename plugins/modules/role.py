@@ -44,10 +44,6 @@ options:
         description: The Oracle SID to connect to (used if service_name is not provided).
         required: false
         type: str
-    host:
-        description: The host of the Oracle database.
-        required: true
-        type: str
     port:
         description: The port of the Oracle database.
         required: false
@@ -67,7 +63,6 @@ EXAMPLES = r'''
       - CREATE SESSION
       - CREATE TABLE
     service_name: ORCL
-    host: 192.168.1.10
 
 # Modify a role by adding privileges
 - name: Modify role by adding privileges
@@ -76,7 +71,6 @@ EXAMPLES = r'''
     privileges:
       - CREATE VIEW
     service_name: ORCL
-    host: 192.168.1.10
 
 # Delete a role
 - name: Delete a role
@@ -84,7 +78,6 @@ EXAMPLES = r'''
     role: my_role
     state: absent
     service_name: ORCL
-    host: 192.168.1.10
 '''
 
 RETURN = r'''
@@ -164,7 +157,6 @@ def run_module():
         state=dict(type='str', required=False, default='present', choices=['present', 'absent']),
         service_name=dict(type='str', required=False),
         sid=dict(type='str', required=False),
-        host=dict(type='str', required=True),
         port=dict(type='int', required=False, default=1521),
     )
 

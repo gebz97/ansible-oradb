@@ -34,10 +34,6 @@ options:
         description: The Oracle SID to connect to (used if service_name is not provided).
         required: false
         type: str
-    host:
-        description: The host of the Oracle database.
-        required: true
-        type: str
     port:
         description: The port of the Oracle database.
         required: false
@@ -61,7 +57,6 @@ EXAMPLES = r'''
     username: testuser
     password: MyStrongPassword!
     service_name: ORCL
-    host: 192.168.1.10
 
 # Remove a user from an Oracle database
 - name: Remove Oracle user
@@ -69,7 +64,6 @@ EXAMPLES = r'''
     username: testuser
     state: absent
     service_name: ORCL
-    host: 192.168.1.10
 '''
 
 RETURN = r'''
@@ -154,7 +148,6 @@ def run_module():
         password=dict(type='str', required=True, no_log=True),
         service_name=dict(type='str', required=False),
         sid=dict(type='str', required=False),
-        host=dict(type='str', required=True),
         port=dict(type='int', required=False, default=1521),
         state=dict(type='str', required=False, choices=['present', 'absent'], default='present')
     )
